@@ -295,6 +295,10 @@
 #else
     [self dismissViewControllerAnimated:YES completion:nil];
 #endif
+    
+    if ([_delegate respondsToSelector:@selector(cancelButtonPressed:)]) {
+        [_delegate performSelector:@selector(cancelButtonPressed:) withObject:self];
+    }
 }
 
 
